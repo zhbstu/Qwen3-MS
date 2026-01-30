@@ -1,3 +1,3 @@
 MODEL_NAME = "Qwen/Qwen3-1.7B"
 OUTPUT_DIR="./output/Qwen3-1.7B"
-SWANLAB_API_KEY = "cAi9vC8rqWW6eWCYuiZcZ"
+SWANLAB_API_KEY = "xxxxxxxxxxxxx"
