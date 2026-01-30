@@ -66,8 +66,7 @@ SAMPLE_QUESTIONS = {
 }
 
 class MedicalAssistant:
-    #def __init__(self, checkpoint_path="./output/Qwen3-1.7B/checkpoint-900"):
-    def __init__(self, checkpoint_path="./models/Qwen/Qwen3-1___7B"):
+    def __init__(self, checkpoint_path="./output/Qwen3-1.7B/checkpoint-1084"):
         """初始化医疗助手"""
         self.checkpoint_path = checkpoint_path
         self.device, self.dtype = self._select_device_and_dtype()
