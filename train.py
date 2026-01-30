@@ -90,13 +90,13 @@ def predict(messages, model, tokenizer):
         input_ids=model_inputs.input_ids,
         attention_mask=attention_mask,
         max_new_tokens=MAX_LENGTH,
+        use_cache=False,  # 启用了梯度检查点，建议关闭缓存
     )
     generated_ids = [
-        # 修改2：没批量处理
         output_ids[len(input_ids):] for input_ids, output_ids in zip(model_inputs.input_ids, generated_ids)
     ]
 
-    response = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)[0]
+    response = tokenizer.batch_decode(generated_ids, skip_special_tokens=True,clean_up_tokenization_spaces=True)[0]
 
     return response
 

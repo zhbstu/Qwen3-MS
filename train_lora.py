@@ -64,7 +64,7 @@ def process_func(example):
 
     input_ids = instruction["input_ids"] + response["input_ids"]
     attention_mask = (
-        instruction["attention_mask"] + response["attention_mask"] + [1]
+        instruction["attention_mask"] + response["attention_mask"]
     )
 
     labels = [-100] * len(instruction["input_ids"]) + response["input_ids"]
@@ -86,13 +86,15 @@ def predict(messages, model, tokenizer):
 
     generated_ids = model.generate(
         model_inputs.input_ids,
-        max_new_tokens=MAX_LENGTH,
+        attention_mask=model_inputs.attention_mask,  # 需添加注意力掩码，否则模型不知道哪些是填充
+        max_new_tokens=4096,
+        use_cache=False,  # 启用了梯度检查点，建议关闭缓存
     )
     generated_ids = [
         output_ids[len(input_ids):] for input_ids, output_ids in zip(model_inputs.input_ids, generated_ids)
     ]
 
-    response = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)[0]
+    response = tokenizer.batch_decode(generated_ids, skip_special_tokens=True,clean_up_tokenization_spaces=True)[0]
 
     return response
 
