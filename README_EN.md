@@ -19,10 +19,6 @@
 
 ## Environment Setup
 
-```bash
-pip install -r requirements.txt
-```
-
 ## Data Preparation
 
 Automatically handles dataset downloading, preprocessing, and validation set splitting. Generates `train.jsonl` and `val.jsonl`.
@@ -69,4 +65,3 @@ python inference_lora.py
 
 - [SwanLab](https://github.com/SwanHubX/SwanLab): Open-source, modern deep learning experiment tracking and visualization platform
 - [Transformers](https://github.com/huggingface/transformers): HuggingFace's library for state-of-the-art pretrained models
-- [PEFT](https://github.com/huggingface/peft): Parameter-Efficient Fine-Tuning library for large language models

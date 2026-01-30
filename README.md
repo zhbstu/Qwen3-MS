@@ -233,5 +233,5 @@ assistant = MedicalAssistant("./your/custom/model/path")
 
 ## 相关资源
 
-- **基础模型**: [Qwen3-0.6B](https://modelscope.cn/models/Qwen/Qwen3-0.6B/summary)
+- **基础模型**: [Qwen3-1.7B](https://modelscope.cn/models/Qwen/Qwen3-1.7B/summary)
 - **数据集**: [delicate_medical_r1_data](https://modelscope.cn/datasets/krisfu/delicate_medical_r1_data)
